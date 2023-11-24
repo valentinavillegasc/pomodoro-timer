@@ -84,7 +84,21 @@ export default function Timer() {
         })}
       />
       <div style={{ marginTop: "20px" }}>
-        {isPaused ? <Playbutton /> : <Pausebutton />}
+        {isPaused ? (
+          <Playbutton
+            onClick={() => {
+              setIsPaused(false);
+              isPausedRef.current = false;
+            }}
+          />
+        ) : (
+          <Pausebutton
+            onClick={() => {
+              setIsPaused(true);
+              isPausedRef.current = true;
+            }}
+          />
+        )}
       </div>
       <div style={{ marginTop: "20px" }}>
         <Settingsbutton onClick={() => settingsInfo.setShowsettings(true)} />
